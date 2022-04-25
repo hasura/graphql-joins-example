@@ -1,0 +1,16 @@
+enum Status {
+  PACKING
+  SHIPPED
+  DELIVERED
+}
+
+type Fulfillment {
+  id: Int!
+  orderId: Int!
+  status: Status!
+}
+
+type Query {
+  fulfillment(orderId: Int!): Fulfillment!
+  fulfillments: [Fulfillment]!
+}

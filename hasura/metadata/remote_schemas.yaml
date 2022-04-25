@@ -1,0 +1,10 @@
+- name: fulfillment
+  definition:
+    url_from_env: FULFILLMENT_SERVICE_URL
+    timeout_seconds: 60
+  comment: ""
+- name: store
+  definition:
+    url_from_env: STORE_SERVICE_URL
+    timeout_seconds: 60
+  comment: ""

@@ -1,0 +1,23 @@
+type Item {
+  id: Int!
+  name: String!
+  price: Float!
+}
+
+type LineItem {
+  quantity: Int!
+  itemId: Int!
+  item: Item
+}
+
+type Order {
+  id: Int!
+  lineItems: [LineItem!]!
+}
+
+type Query {
+  item(id: Int!): Item
+  items: [Item!]!
+  order(id: Int!): Order
+  orders: [Order]!
+}
