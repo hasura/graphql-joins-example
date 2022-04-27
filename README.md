@@ -66,3 +66,37 @@ type Query {
 ## Joining the Schemas
 
 Using Hasura Graphql Joins we can combine the schemas together! From the fulfillment schema `orderId` key we join order information from store schema using the `order` type ID field. Without any code we have joined two seperate services!
+
+```graphql
+{
+  fulfillment(orderId: 1) {
+    status
+    order {
+      lineItems {
+        item {
+          name
+        }
+      }
+    }
+  }
+}
+```
+
+```json
+{
+  "data": {
+    "fulfillment": {
+      "status": "PACKING",
+      "order": {
+        "lineItems": [
+          {
+            "item": {
+              "name": "Sunglasses"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+```
