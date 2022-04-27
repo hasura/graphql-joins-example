@@ -67,6 +67,8 @@ type Query {
 
 Using Hasura Graphql Joins we can combine the schemas together! From the fulfillment schema `orderId` key we join order information from store schema using the `order` type ID field. Without any code we have joined two seperate services!
 
+![Screen Shot 2022-04-26 at 19 32 30](https://user-images.githubusercontent.com/11153289/165415195-0be3cf74-c19a-4541-98cd-550fd537d812.png)
+
 ```graphql
 {
   fulfillment(orderId: 1) {
