@@ -3,6 +3,19 @@
     url_from_env: FULFILLMENT_SERVICE_URL
     timeout_seconds: 60
   comment: ""
+  remote_relationships:
+    - relationships:
+        - definition:
+            to_remote_schema:
+              remote_field:
+                order:
+                  arguments:
+                    id: $orderId
+              remote_schema: store
+              lhs_fields:
+                - orderId
+          name: order
+      type_name: Fulfillment
 - name: store
   definition:
     url_from_env: STORE_SERVICE_URL
