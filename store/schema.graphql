@@ -2,6 +2,7 @@ type Item {
   id: Int!
   name: String!
   price: Float!
+  weight: Int!
 }
 
 type LineItem {
@@ -20,4 +21,5 @@ type Query {
   items: [Item!]!
   order(id: Int!): Order
   orders: [Order]!
+  weight(itemId: Int!): Int
 }

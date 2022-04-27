@@ -19,6 +19,7 @@ export type Item = {
   id: Scalars['Int'];
   name: Scalars['String'];
   price: Scalars['Float'];
+  weight: Scalars['Int'];
 };
 
 export type LineItem = {
@@ -40,6 +41,7 @@ export type Query = {
   items: Array<Item>;
   order?: Maybe<Order>;
   orders: Array<Maybe<Order>>;
+  weight?: Maybe<Scalars['Int']>;
 };
 
 
@@ -50,6 +52,11 @@ export type QueryItemArgs = {
 
 export type QueryOrderArgs = {
   id: Scalars['Int'];
+};
+
+
+export type QueryWeightArgs = {
+  itemId: Scalars['Int'];
 };
 
 
@@ -147,6 +154,7 @@ export type ItemResolvers<ContextType = any, ParentType extends ResolversParentT
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   price?: Resolver<ResolversTypes['Float'], ParentType, ContextType>;
+  weight?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -168,6 +176,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   items?: Resolver<Array<ResolversTypes['Item']>, ParentType, ContextType>;
   order?: Resolver<Maybe<ResolversTypes['Order']>, ParentType, ContextType, RequireFields<QueryOrderArgs, 'id'>>;
   orders?: Resolver<Array<Maybe<ResolversTypes['Order']>>, ParentType, ContextType>;
+  weight?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType, RequireFields<QueryWeightArgs, 'itemId'>>;
 };
 
 export type Resolvers<ContextType = any> = {

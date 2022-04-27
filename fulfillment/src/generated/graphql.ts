@@ -19,16 +19,23 @@ export type Fulfillment = {
   id: Scalars['Int'];
   orderId: Scalars['Int'];
   status: Status;
+  weight: Scalars['Int'];
 };
 
 export type Query = {
   __typename?: 'Query';
   fulfillment: Fulfillment;
   fulfillments: Array<Maybe<Fulfillment>>;
+  weight: Scalars['Int'];
 };
 
 
 export type QueryFulfillmentArgs = {
+  orderId: Scalars['Int'];
+};
+
+
+export type QueryWeightArgs = {
   orderId: Scalars['Int'];
 };
 
@@ -128,12 +135,14 @@ export type FulfillmentResolvers<ContextType = any, ParentType extends Resolvers
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   orderId?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   status?: Resolver<ResolversTypes['Status'], ParentType, ContextType>;
+  weight?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   fulfillment?: Resolver<ResolversTypes['Fulfillment'], ParentType, ContextType, RequireFields<QueryFulfillmentArgs, 'orderId'>>;
   fulfillments?: Resolver<Array<Maybe<ResolversTypes['Fulfillment']>>, ParentType, ContextType>;
+  weight?: Resolver<ResolversTypes['Int'], ParentType, ContextType, RequireFields<QueryWeightArgs, 'orderId'>>;
 };
 
 export type Resolvers<ContextType = any> = {

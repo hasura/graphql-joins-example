@@ -7,11 +7,13 @@ const fulfillments: Fulfillment[] = [
     id: 1000,
     orderId: 1,
     status: Status.Packing,
+    weight: 1,
   },
   {
     id: 1001,
     orderId: 2,
     status: Status.Shipped,
+    weight: 10,
   },
 ];
 
@@ -25,6 +27,11 @@ const resolvers: Resolvers = {
       )!;
     },
     fulfillments: () => fulfillments,
+    weight: (parent: unknown, args: { orderId: number }) => {
+      return fulfillments.find(
+        (fulfillment) => fulfillment.orderId === args.orderId
+      )!.weight;
+    },
   },
 };
 

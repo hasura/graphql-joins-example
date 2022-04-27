@@ -8,9 +8,11 @@ type Fulfillment {
   id: Int!
   orderId: Int!
   status: Status!
+  weight: Int!
 }
 
 type Query {
   fulfillment(orderId: Int!): Fulfillment!
   fulfillments: [Fulfillment]!
+  weight(orderId: Int!): Int!
 }
